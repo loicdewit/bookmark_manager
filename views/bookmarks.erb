@@ -1,2 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmark presentation page</title>
+  </head>
 
-<%= @all_bookmarks %>
+  <body>
+
+    <ul>
+      <%@all_bookmarks.each do |bookmark|%>
+      <li class='bookmark'>
+
+        <a href="<%=bookmark.url%>" target="_blank"> <%= bookmark.title %> </a>
+
+        <form action=/bookmark_deleted method='post'>
+          <button type="submit" name='delete' value='<%=bookmark.id%>'>delete</button>
+        </form>
+
+        <form action=/bookmark_update method='post'>
+          <input type='text' name='update_title' placeholder="change title?">
+          <input type='submit' id='update' name='<%=bookmark.id%>' value='update'>
+        </form>
+
+        <form action=/bookmarks/<%=bookmark.id%>/comments/new method='get'>
+          <button type='submit'>Add comment</button>
+        </form>
+
+        <div>
+          <ul>
+            <%bookmark.comments.each do |comment| %>
+              <li>
+                <%=comment['text']%>
+              </li>
+            <%end%>
+          </ul>
+        </div>
+
+      </li>
+      <%end%>
+    </ul>
+
+  </body>
+</html>

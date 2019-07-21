@@ -1,1 +1,22 @@
-<h1>Welcome to Your Bookmark Manager</h1>
+<html>
+  <h1>Welcome to Your Bookmark Manager</h1>
+
+  <div>
+    <form action='/bookmark_added' method='post'>
+      <div>
+        <input type='text' id='New bookmark' name='new_bookmark' placeholder="url">
+      </div>
+      <div>
+        <input type='text' id='Title' name='new_bookmark_title' placeholder="title">
+        <input type='submit' id='save' value='Save'>
+      </div>
+    </form>
+  </div>
+  <div>
+    <p>
+      <%if flash[:notice] %>
+        <%= flash[:notice]%>
+      <%end%>
+    </p>
+  </div>
+</html>

@@ -15,6 +15,11 @@ bookmarks.erb(view)---(html)----->CONTROLLER
 CONTROLLER------>CLIENT
 
 
+###User Story 2
+As a user,
+So that I can add a bookmark,
+I would like submit a bookmark on my bookmark_manager.
+
 ###Setting up the database
 
 1. Connect to psql
